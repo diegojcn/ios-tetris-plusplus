@@ -6,28 +6,21 @@
 //  Copyright © 2018 dj. All rights reserved.
 //
 
-let NumColumns = 14
-let NumRows = 25
+let NumColumns = 11
+let NumRows = 22
 
 let StartingColumn = 4
-let StartingRow = 0
+let StartingRow = 1
 
-let PreviewColumn = 15
+let PreviewColumn = 12
 let PreviewRow = 1
 
 let PointsPerLine = 10
 let LevelThreshold = 50
 
-protocol TetrisPlusPlusDelegate {
-    func gameDidEnd(tetris: TetrisPlusPlus)
-    func gameDidBegin(tetris: TetrisPlusPlus)
-    func gameShapeDidLand(tetris: TetrisPlusPlus)
-    func gameShapeDidMove(tetris: TetrisPlusPlus)
-    func gameShapeDidDrop(tetris: TetrisPlusPlus)
-    func gameDidLevelUp(tetris: TetrisPlusPlus)
-}
 
 class TetrisPlusPlus {
+    
     var blockArray:Array2D<Block>
     var nextShape:Shape?
     var fallingShape:Shape?

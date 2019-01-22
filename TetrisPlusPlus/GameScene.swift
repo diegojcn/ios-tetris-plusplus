@@ -21,7 +21,7 @@ class GameScene: SKScene {
     
     var tick:(() -> ())?
     var tickLengthMillis = TickLengthLevelOne
-    var lastTick:NSDate?
+    var lastTick:Date?
     
     var textureCache = Dictionary<String, SKTexture>()
 
@@ -34,10 +34,10 @@ class GameScene: SKScene {
         
         anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        let background = SKSpriteNode(imageNamed: "background")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background)
+//        let background = SKSpriteNode(imageNamed: "background")
+//        background.position = CGPoint(x: 0, y: 0)
+//        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+//        addChild(background)
         
         addChild(gameLayer)
 
@@ -58,6 +58,10 @@ class GameScene: SKScene {
         run(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
     }
     
+    func stopSound() {
+        run(SKAction.stop())
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         guard let lastTick = lastTick else {
@@ -65,13 +69,13 @@ class GameScene: SKScene {
         }
         let timePassed = lastTick.timeIntervalSinceNow * -1000.0
         if timePassed > tickLengthMillis {
-            self.lastTick = NSDate()
+            self.lastTick = Date()
             tick?()
         }
     }
     
     func startTicking() {
-        lastTick = NSDate()
+        lastTick = Date()
     }
     
     func stopTicking() {

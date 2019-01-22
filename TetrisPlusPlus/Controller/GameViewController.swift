@@ -9,19 +9,24 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRecognizerDelegate {
+class GameViewController: UIViewController {
     
     var scene: GameScene!
     var tetrisPlusPlus: TetrisPlusPlus!
     var panPointReference:CGPoint?
+    var dataController: DataController!
     
     @IBOutlet weak var skView: SKView!
+    
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var levelLabel: UILabel!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //        // Configure the view.
+        //        let skView = view as! SKView
         // Configure the view.
         skView.isMultipleTouchEnabled = false
         
@@ -42,53 +47,6 @@ class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRec
         return false
     }
     
-    @IBAction func rotate(_ sender: Any) {
-        tetrisPlusPlus.rotateShape()
-    }
-    
-    
-    @IBAction func didPan(sender: UIPanGestureRecognizer) {
-        let currentPoint = sender.translation(in: self.view)
-        if let originalPoint = panPointReference {
-           
-            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
-                if sender.velocity(in: self.view).x > CGFloat(0) {
-                    tetrisPlusPlus.moveShapeRight()
-                    panPointReference = currentPoint
-                } else {
-                    tetrisPlusPlus.moveShapeLeft()
-                    panPointReference = currentPoint
-                }
-                
-            }
-        } else if sender.state == .began {
-            panPointReference = currentPoint
-        }
-
-    }
-    
-    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
-        tetrisPlusPlus.dropShape()
-        print("swipe")
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer is UISwipeGestureRecognizer {
-            if otherGestureRecognizer is UIPanGestureRecognizer {
-                return true
-            }
-        } else if gestureRecognizer is UIPanGestureRecognizer {
-            if otherGestureRecognizer is UITapGestureRecognizer {
-                return true
-            }
-        }
-        return false
-    }
-    
     func didTick() {
         tetrisPlusPlus.letShapeFall()
     }
@@ -104,6 +62,57 @@ class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRec
             self.scene.startTicking()
         }
     }
+    
+    
+}
+
+extension GameViewController {
+    
+    
+    @IBAction func didTap(sender: UITapGestureRecognizer) {
+        
+        tetrisPlusPlus.rotateShape()
+        
+    }
+    
+    @IBAction func fallShape(_ sender: Any) {
+        tetrisPlusPlus.letShapeFall()
+    }
+    
+    @IBAction func rotate(_ sender: Any) {
+        tetrisPlusPlus.rotateShape()
+    }
+    
+    
+    @IBAction func didPan(sender: UIPanGestureRecognizer) {
+        let currentPoint = sender.translation(in: self.view)
+        if let originalPoint = panPointReference {
+            
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                if sender.velocity(in: self.view).x > CGFloat(0) {
+                    tetrisPlusPlus.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    tetrisPlusPlus.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+                
+            }
+        } else if sender.state == .began {
+            panPointReference = currentPoint
+        }
+        
+    }
+    
+    @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
+        tetrisPlusPlus.dropShape()
+        print("swipe")
+    }
+    
+}
+
+
+extension GameViewController : TetrisPlusPlusDelegate {
     
     func gameDidBegin(tetris: TetrisPlusPlus) {
         levelLabel.text = "\(tetris.level)"
@@ -124,10 +133,24 @@ class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRec
         view.isUserInteractionEnabled = false
         scene.stopTicking()
         scene.playSound(sound: "gameover.mp3")
+        scene.stopSound()
         scene.animateCollapsingLines(linesToRemove: tetris.removeAllBlocks(), fallenBlocks: tetris.removeAllBlocks()) {
-            tetris.beginGame()
+            let alertController = UIAlertController(title: "Game Over", message:
+                "You Lose!", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: { (action) -> Void in
+                tetris.beginGame()
+                
+            }))
+            alertController.addAction(UIAlertAction(title: "Exit", style: UIAlertActionStyle.default,handler: { (action) -> Void in
+                
+                self.performSegue(withIdentifier: "back", sender: nil)
+                
+            }))
+            
+            self.present(alertController, animated: true, completion: nil)
+            
         }
-        print("gameover")
+        
     }
     
     func gameDidLevelUp(tetris: TetrisPlusPlus) {
@@ -146,8 +169,8 @@ class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRec
         scene.redrawShape(shape: tetris.fallingShape!) {
             tetris.letShapeFall()
         }
-       scene.playSound(sound: "drop.mp3")
-          print("drop")
+        scene.playSound(sound: "drop.mp3")
+        print("drop")
     }
     
     func gameShapeDidLand(tetris: TetrisPlusPlus) {
@@ -168,4 +191,26 @@ class GameViewController: UIViewController, TetrisPlusPlusDelegate, UIGestureRec
     func gameShapeDidMove(tetris: TetrisPlusPlus) {
         scene.redrawShape(shape: tetris.fallingShape!) {}
     }
+    
+}
+
+extension GameViewController : UIGestureRecognizerDelegate {
+    
+    private func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    private func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer is UISwipeGestureRecognizer {
+            if otherGestureRecognizer is UIPanGestureRecognizer {
+                return true
+            }
+        } else if gestureRecognizer is UIPanGestureRecognizer {
+            if otherGestureRecognizer is UITapGestureRecognizer {
+                return true
+            }
+        }
+        return false
+    }
+    
 }

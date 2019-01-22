@@ -30,10 +30,16 @@
 		0B7757982132E9EF00FF41E3 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7757972132E9EF00FF41E3 /* SShape.swift */; };
 		0B77579A2132EA5E00FF41E3 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7757992132EA5E00FF41E3 /* ZShape.swift */; };
 		0B77579E2133444C00FF41E3 /* TetrisPlusPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B77579D2133444C00FF41E3 /* TetrisPlusPlus.swift */; };
+		0BCCD75621F51646009E3895 /* TetrisPlusPlusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75521F51646009E3895 /* TetrisPlusPlusDelegate.swift */; };
+		0BCCD75921F55026009E3895 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75821F55026009E3895 /* BeginViewController.swift */; };
+		0BCCD75D21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75B21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld */; };
+		0BCCD75F21F66800009E3895 /* ScoreExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75E21F66800009E3895 /* ScoreExtension.swift */; };
+		0BCCD76121F668C3009E3895 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD76021F668C3009E3895 /* DataController.swift */; };
+		0BCCD76321F6912E009E3895 /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD76221F6912E009E3895 /* BeginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B77575F21323BA000FF41E3 /* TetrisPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TetrisPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B77575F21323BA000FF41E3 /* ios-tetrisPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-tetrisPlusPlus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B77576221323BA000FF41E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B77576621323BA000FF41E3 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		0B77576821323BA000FF41E3 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -58,6 +64,12 @@
 		0B7757972132E9EF00FF41E3 /* SShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		0B7757992132EA5E00FF41E3 /* ZShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		0B77579D2133444C00FF41E3 /* TetrisPlusPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisPlusPlus.swift; sourceTree = "<group>"; };
+		0BCCD75521F51646009E3895 /* TetrisPlusPlusDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisPlusPlusDelegate.swift; sourceTree = "<group>"; };
+		0BCCD75821F55026009E3895 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
+		0BCCD75C21F66740009E3895 /* tetrisCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tetrisCore.xcdatamodel; sourceTree = "<group>"; };
+		0BCCD75E21F66800009E3895 /* ScoreExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreExtension.swift; sourceTree = "<group>"; };
+		0BCCD76021F668C3009E3895 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		0BCCD76221F6912E009E3895 /* BeginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +94,7 @@
 		0B77576021323BA000FF41E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0B77575F21323BA000FF41E3 /* TetrisPlusPlus.app */,
+				0B77575F21323BA000FF41E3 /* ios-tetrisPlusPlus.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,23 +102,17 @@
 		0B77576121323BA000FF41E3 /* TetrisPlusPlus */ = {
 			isa = PBXGroup;
 			children = (
+				0BCCD76421F69152009E3895 /* View */,
+				0BCCD75A21F6671E009E3895 /* Model */,
+				0BCCD75721F5165A009E3895 /* Delegates */,
+				0BCCD75421F514F4009E3895 /* Blocks */,
+				0BCCD75221F5148A009E3895 /* Controller */,
 				0B77577421323BA200FF41E3 /* Info.plist */,
 				0B77579D2133444C00FF41E3 /* TetrisPlusPlus.swift */,
-				0B77578621323F7A00FF41E3 /* Array2D.swift */,
-				0B7757882132B8EF00FF41E3 /* Block.swift */,
-				0B77578B2132E01500FF41E3 /* Shape.swift */,
-				0B77578D2132E29D00FF41E3 /* SquareShape.swift */,
-				0B77578F2132E46300FF41E3 /* TShape.swift */,
-				0B7757912132E5E700FF41E3 /* LineShape.swift */,
-				0B7757932132E65300FF41E3 /* LShape.swift */,
-				0B7757952132E9BF00FF41E3 /* JShape.swift */,
-				0B7757972132E9EF00FF41E3 /* SShape.swift */,
-				0B7757992132EA5E00FF41E3 /* ZShape.swift */,
 				0B77577B21323E0700FF41E3 /* Sounds */,
 				0B77576221323BA000FF41E3 /* AppDelegate.swift */,
 				0B77576621323BA000FF41E3 /* Actions.sks */,
 				0B77576821323BA000FF41E3 /* GameScene.swift */,
-				0B77576A21323BA000FF41E3 /* GameViewController.swift */,
 				0B77576C21323BA000FF41E3 /* Main.storyboard */,
 				0B77576F21323BA200FF41E3 /* Assets.xcassets */,
 				0B77577121323BA200FF41E3 /* LaunchScreen.storyboard */,
@@ -126,12 +132,64 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		0BCCD75221F5148A009E3895 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0B77576A21323BA000FF41E3 /* GameViewController.swift */,
+				0BCCD75821F55026009E3895 /* BeginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0BCCD75421F514F4009E3895 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				0B77578621323F7A00FF41E3 /* Array2D.swift */,
+				0B7757882132B8EF00FF41E3 /* Block.swift */,
+				0B77578B2132E01500FF41E3 /* Shape.swift */,
+				0B77578D2132E29D00FF41E3 /* SquareShape.swift */,
+				0B77578F2132E46300FF41E3 /* TShape.swift */,
+				0B7757912132E5E700FF41E3 /* LineShape.swift */,
+				0B7757932132E65300FF41E3 /* LShape.swift */,
+				0B7757952132E9BF00FF41E3 /* JShape.swift */,
+				0B7757972132E9EF00FF41E3 /* SShape.swift */,
+				0B7757992132EA5E00FF41E3 /* ZShape.swift */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		0BCCD75721F5165A009E3895 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				0BCCD75521F51646009E3895 /* TetrisPlusPlusDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		0BCCD75A21F6671E009E3895 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BCCD75B21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld */,
+				0BCCD75E21F66800009E3895 /* ScoreExtension.swift */,
+				0BCCD76021F668C3009E3895 /* DataController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0BCCD76421F69152009E3895 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BCCD76221F6912E009E3895 /* BeginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B77575E21323BA000FF41E3 /* TetrisPlusPlus */ = {
+		0B77575E21323BA000FF41E3 /* ios-tetrisPlusPlus */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B77577721323BA200FF41E3 /* Build configuration list for PBXNativeTarget "TetrisPlusPlus" */;
+			buildConfigurationList = 0B77577721323BA200FF41E3 /* Build configuration list for PBXNativeTarget "ios-tetrisPlusPlus" */;
 			buildPhases = (
 				0B77575B21323BA000FF41E3 /* Sources */,
 				0B77575C21323BA000FF41E3 /* Frameworks */,
@@ -141,9 +199,9 @@
 			);
 			dependencies = (
 			);
-			name = TetrisPlusPlus;
+			name = "ios-tetrisPlusPlus";
 			productName = TetrisPlusPlus;
-			productReference = 0B77575F21323BA000FF41E3 /* TetrisPlusPlus.app */;
+			productReference = 0B77575F21323BA000FF41E3 /* ios-tetrisPlusPlus.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +219,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0B77575A21323BA000FF41E3 /* Build configuration list for PBXProject "TetrisPlusPlus" */;
+			buildConfigurationList = 0B77575A21323BA000FF41E3 /* Build configuration list for PBXProject "ios-tetrisPlusPlus" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -174,7 +232,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B77575E21323BA000FF41E3 /* TetrisPlusPlus */,
+				0B77575E21323BA000FF41E3 /* ios-tetrisPlusPlus */,
 			);
 		};
 /* End PBXProject section */
@@ -209,13 +267,19 @@
 				0B7757962132E9BF00FF41E3 /* JShape.swift in Sources */,
 				0B77578C2132E01500FF41E3 /* Shape.swift in Sources */,
 				0B77576921323BA000FF41E3 /* GameScene.swift in Sources */,
+				0BCCD75621F51646009E3895 /* TetrisPlusPlusDelegate.swift in Sources */,
 				0B7757922132E5E700FF41E3 /* LineShape.swift in Sources */,
+				0BCCD75921F55026009E3895 /* BeginViewController.swift in Sources */,
 				0B7757982132E9EF00FF41E3 /* SShape.swift in Sources */,
+				0BCCD76121F668C3009E3895 /* DataController.swift in Sources */,
+				0BCCD75F21F66800009E3895 /* ScoreExtension.swift in Sources */,
 				0B77579E2133444C00FF41E3 /* TetrisPlusPlus.swift in Sources */,
+				0BCCD75D21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld in Sources */,
 				0B7757902132E46300FF41E3 /* TShape.swift in Sources */,
 				0B77578721323F7A00FF41E3 /* Array2D.swift in Sources */,
 				0B77576B21323BA000FF41E3 /* GameViewController.swift in Sources */,
 				0B77579A2132EA5E00FF41E3 /* ZShape.swift in Sources */,
+				0BCCD76321F6912E009E3895 /* BeginView.swift in Sources */,
 				0B77576321323BA000FF41E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,7 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -347,7 +411,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -395,7 +459,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B77575A21323BA000FF41E3 /* Build configuration list for PBXProject "TetrisPlusPlus" */ = {
+		0B77575A21323BA000FF41E3 /* Build configuration list for PBXProject "ios-tetrisPlusPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B77577521323BA200FF41E3 /* Debug */,
@@ -404,7 +468,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B77577721323BA200FF41E3 /* Build configuration list for PBXNativeTarget "TetrisPlusPlus" */ = {
+		0B77577721323BA200FF41E3 /* Build configuration list for PBXNativeTarget "ios-tetrisPlusPlus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B77577821323BA200FF41E3 /* Debug */,
@@ -414,6 +478,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0BCCD75B21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0BCCD75C21F66740009E3895 /* tetrisCore.xcdatamodel */,
+			);
+			currentVersion = 0BCCD75C21F66740009E3895 /* tetrisCore.xcdatamodel */;
+			path = "ios-tetrisPlusPlus.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0B77575721323BA000FF41E3 /* Project object */;
 }

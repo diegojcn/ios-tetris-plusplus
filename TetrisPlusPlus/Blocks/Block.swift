@@ -14,7 +14,7 @@ enum BlockColor: Int, CustomStringConvertible {
     
     case Blue = 0, Orange = 1, Purple = 2, Red = 3, Teal = 4, Yellow = 5
     
-
+    
     var spriteName: String {
         switch self {
         case .Blue:
@@ -75,6 +75,6 @@ class Block: Hashable, CustomStringConvertible  {
 }
 
 // #13
-func ==(lhs: Block, rhs: Block) -> Bool {
+func == (lhs: Block, rhs: Block) -> Bool {
     return lhs.column == rhs.column && lhs.row == rhs.row && lhs.color.rawValue == rhs.color.rawValue
 }
