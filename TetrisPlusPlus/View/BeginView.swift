@@ -27,9 +27,6 @@ class BeginView : UIView {
         self.historyBtn.layer.cornerRadius = 0.5 * self.historyBtn.bounds.size.width
         self.historyBtn.clipsToBounds = true
         
-        self.titleView.layer.borderWidth = 2
-        self.titleView.layer.borderColor = UIColor.gray.cgColor
-        
     }
     
 }

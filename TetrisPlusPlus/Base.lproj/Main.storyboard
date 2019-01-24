@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xMT-aZ-xVi">
-                                <rect key="frame" x="0.0" y="23" width="414" height="710"/>
+                                <rect key="frame" x="0.0" y="67" width="414" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tw-q7-Kyt">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -84,10 +84,10 @@
                                         </constraints>
                                     </view>
                                     <skView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xI-hN-nKm">
-                                        <rect key="frame" x="0.0" y="80" width="414" height="570"/>
+                                        <rect key="frame" x="0.0" y="80" width="414" height="526"/>
                                     </skView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-IP-Ucs" userLabel="stackBtn">
-                                        <rect key="frame" x="0.0" y="650" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="606" width="414" height="60"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTL-JS-EdG" userLabel="rotateBtn">
                                                 <rect key="frame" x="0.0" y="0.0" width="204.66666666666666" height="60"/>
@@ -137,7 +137,7 @@
                         <outlet property="levelLabel" destination="eUc-15-bre" id="Wa7-zS-fel"/>
                         <outlet property="scoreLabel" destination="Xvn-gx-lry" id="rCw-QL-djb"/>
                         <outlet property="skView" destination="9xI-hN-nKm" id="b2s-pq-7GE"/>
-                        <segue destination="Ctx-nX-gtd" kind="presentation" identifier="back" id="dPh-Ha-Ds9"/>
+                        <segue destination="BDp-Qq-eZa" kind="show" identifier="back" id="Mrb-0w-Fx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1A-GD-OQp" sceneMemberID="firstResponder"/>
@@ -161,6 +161,108 @@
             </objects>
             <point key="canvasLocation" x="3949" y="-431"/>
         </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="9Iy-eu-cZ7">
+            <objects>
+                <tableViewController id="oQe-LG-HCK" customClass="HistoryTableViewController" customModule="ios_tetrisPlusPlus" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VzS-H5-pgQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" rowHeight="81" id="GPW-tX-78b" customClass="ScoreTableViewCell" customModule="ios_tetrisPlusPlus" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="81"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPW-tX-78b" id="UK2-yz-lJn">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-fx-MhY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <subviews>
+                                                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcC-4H-fcz" customClass="UIImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-60pt" translatesAutoresizingMaskIntoConstraints="NO" id="jzw-eW-KvA">
+                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="70"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="jzw-eW-KvA" firstAttribute="centerY" secondItem="GcC-4H-fcz" secondAttribute="centerY" id="9a1-c9-ieN"/>
+                                                        <constraint firstItem="jzw-eW-KvA" firstAttribute="height" secondItem="GcC-4H-fcz" secondAttribute="height" id="aDR-lw-BCo"/>
+                                                        <constraint firstItem="jzw-eW-KvA" firstAttribute="width" secondItem="GcC-4H-fcz" secondAttribute="width" id="c2c-pG-Qa9"/>
+                                                        <constraint firstItem="jzw-eW-KvA" firstAttribute="centerX" secondItem="GcC-4H-fcz" secondAttribute="centerX" id="gLr-5F-n73"/>
+                                                    </constraints>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qTK-D4-aNe">
+                                                    <rect key="frame" x="80" y="0.0" width="334" height="70"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xXq-6e-hkF" userLabel="StackScore">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="34"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHG-28-02F" userLabel="ScoreLbl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="34"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16v-CV-OEM" userLabel="999">
+                                                                    <rect key="frame" x="167" y="0.0" width="167" height="34"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vyw-j2-04j" userLabel="StackLevel">
+                                                            <rect key="frame" x="0.0" y="36" width="334" height="34"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvP-cf-RaH" userLabel="LevelLbl">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="34"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crs-nZ-AtQ" userLabel="999">
+                                                                    <rect key="frame" x="167" y="0.0" width="167" height="34"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qTK-D4-aNe" firstAttribute="leading" secondItem="bLw-fx-MhY" secondAttribute="leading" constant="80" id="YoB-U9-MfM"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bLw-fx-MhY" secondAttribute="trailing" id="5IC-fX-ghE"/>
+                                        <constraint firstItem="bLw-fx-MhY" firstAttribute="top" secondItem="UK2-yz-lJn" secondAttribute="top" id="Nwm-sg-wmt"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bLw-fx-MhY" secondAttribute="bottom" id="aZa-eO-L2j"/>
+                                        <constraint firstItem="bLw-fx-MhY" firstAttribute="leading" secondItem="UK2-yz-lJn" secondAttribute="leading" id="h9c-IQ-K6t"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="levelPointLbl" destination="crs-nZ-AtQ" id="Bvq-fl-UHo"/>
+                                    <outlet property="scorePointsLbl" destination="16v-CV-OEM" id="N2n-Ml-FFr"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oQe-LG-HCK" id="Tel-Wd-ufG"/>
+                            <outlet property="delegate" destination="oQe-LG-HCK" id="bnp-c0-vaW"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PFd-fZ-Dcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3947.826086956522" y="646.46739130434787"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HNd-G7-K5r">
             <objects>
@@ -177,7 +279,7 @@
             </objects>
             <point key="canvasLocation" x="1041" y="8"/>
         </scene>
-        <!--Tetris-->
+        <!--Begin View Controller-->
         <scene sceneID="Mnp-Z2-jXp">
             <objects>
                 <viewController id="Ctx-nX-gtd" customClass="BeginViewController" customModule="ios_tetrisPlusPlus" sceneMemberID="viewController">
@@ -193,11 +295,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6k-gD-saJ" userLabel="newGameBtn">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.47450980392156861" green="0.66666666666666663" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="Von-rU-Ngk"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="New Game"/>
                                                 <connections>
                                                     <action selector="newGame:" destination="Ctx-nX-gtd" eventType="touchUpInside" id="zXw-Qm-L68"/>
@@ -205,12 +308,16 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ver-yE-KkN" userLabel="historyBtn">
                                                 <rect key="frame" x="0.0" y="85" width="314" height="80"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" red="0.14509803921568629" green="0.35686274509803922" blue="0.56470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="SQS-uu-3Zv"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="40"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Games History"/>
+                                                <connections>
+                                                    <action selector="history:" destination="Ctx-nX-gtd" eventType="touchUpInside" id="BKB-Tt-sJv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -224,7 +331,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8m8-lj-Hax" userLabel="titleView">
-                                <rect key="frame" x="20" y="87" width="374" height="326"/>
+                                <rect key="frame" x="20" y="131" width="374" height="282"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TetrisLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-Ha-9zW">
                                         <rect key="frame" x="21" y="41" width="332" height="201"/>
@@ -251,10 +358,11 @@
                             <outlet property="titleView" destination="8m8-lj-Hax" id="FEo-Uh-XZk"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tetris" id="VF1-T1-Dan"/>
+                    <navigationItem key="navigationItem" id="VF1-T1-Dan"/>
                     <connections>
                         <outlet property="beginView" destination="7el-wo-U8T" id="rIx-ve-pdF"/>
                         <segue destination="MGB-Jw-8f7" kind="show" identifier="newGameSegue" id="0Ek-fs-8Eb"/>
+                        <segue destination="oQe-LG-HCK" kind="show" identifier="historySegue" id="Rqw-Pp-ZvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CDx-R2-VFZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,8 +372,6 @@
     </scenes>
     <resources>
         <image name="TetrisLogo" width="420" height="420"/>
+        <image name="icon-60pt" width="120" height="120"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="dPh-Ha-Ds9"/>
-    </inferredMetricsTieBreakers>
 </document>

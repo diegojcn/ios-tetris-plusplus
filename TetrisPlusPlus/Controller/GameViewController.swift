@@ -21,7 +21,13 @@ class GameViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     @IBOutlet var levelLabel: UILabel!
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.showNavigationController(animated: animated)
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return getDefaulStatusBarStyle()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,13 +43,13 @@ class GameViewController: UIViewController {
         
         tetrisPlusPlus = TetrisPlusPlus()
         tetrisPlusPlus.delegate = self
-        tetrisPlusPlus.beginGame()
+        tetrisPlusPlus.beginGame(playSound : false)
         
         // Present the scene.
         skView.presentScene(scene)
     }
     
-    override var prefersStatusBarHidden: Bool{
+    override var prefersStatusBarHidden: Bool {
         return false
     }
     
@@ -106,9 +112,25 @@ extension GameViewController {
     
     @IBAction func didSwipe(sender: UISwipeGestureRecognizer) {
         tetrisPlusPlus.dropShape()
-        print("swipe")
+        
     }
     
+}
+
+extension GameViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "back" {
+        
+            if let navigationController = segue.destination as? UINavigationController {
+                let gameController = navigationController.topViewController as! BeginViewController
+                gameController.dataController = self.dataController
+                
+            }
+            
+        }
+        
+    }
 }
 
 
@@ -138,7 +160,7 @@ extension GameViewController : TetrisPlusPlusDelegate {
             let alertController = UIAlertController(title: "Game Over", message:
                 "You Lose!", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: { (action) -> Void in
-                tetris.beginGame()
+                tetris.beginGame(playSound : false)
                 
             }))
             alertController.addAction(UIAlertAction(title: "Exit", style: UIAlertActionStyle.default,handler: { (action) -> Void in
@@ -147,49 +169,57 @@ extension GameViewController : TetrisPlusPlusDelegate {
                 
             }))
             
-            self.present(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: self.saveScore)
             
         }
         
     }
     
+    func saveScore() -> Void {
+        
+        let score : String! = self.scoreLabel.text
+        let level : String! = self.levelLabel.text
+        
+        self.dataController.saveScore(scoreValue: Double(score)!, level: Int16(level)!)
+    }
+    
     func gameDidLevelUp(tetris: TetrisPlusPlus) {
-        levelLabel.text = "\(tetris.level)"
+        self.levelLabel.text = "\(tetris.level)"
         if scene.tickLengthMillis >= 100 {
-            scene.tickLengthMillis -= 100
+            self.scene.tickLengthMillis -= 100
         } else if scene.tickLengthMillis > 50 {
-            scene.tickLengthMillis -= 50
+            self.scene.tickLengthMillis -= 50
         }
         scene.playSound(sound: "levelup.mp3")
         print("levelup")
     }
     
     func gameShapeDidDrop(tetris: TetrisPlusPlus) {
-        scene.stopTicking()
-        scene.redrawShape(shape: tetris.fallingShape!) {
+        self.scene.stopTicking()
+        self.scene.redrawShape(shape: tetris.fallingShape!) {
             tetris.letShapeFall()
         }
-        scene.playSound(sound: "drop.mp3")
+        self.scene.playSound(sound: "drop.mp3")
         print("drop")
     }
     
     func gameShapeDidLand(tetris: TetrisPlusPlus) {
-        scene.stopTicking()
+        self.scene.stopTicking()
         self.view.isUserInteractionEnabled = false
         let removedLines = tetris.removeCompletedLines()
         if removedLines.linesRemoved.count > 0 {
             self.scoreLabel.text = "\(tetris.score)"
-            scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
+            self.scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
                 self.gameShapeDidLand(tetris: tetris)
             }
-            scene.playSound(sound: "bomb.mp3")
+            self.scene.playSound(sound: "bomb.mp3")
         } else {
             nextShape()
         }
     }
     
     func gameShapeDidMove(tetris: TetrisPlusPlus) {
-        scene.redrawShape(shape: tetris.fallingShape!) {}
+        self.scene.redrawShape(shape: tetris.fallingShape!) {}
     }
     
 }

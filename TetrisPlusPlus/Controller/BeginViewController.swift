@@ -17,13 +17,31 @@ class BeginViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.beginView.initView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.hideNavigationController(animated: animated)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return getDefaulStatusBarStyle()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newGameSegue" {
             
             if let gameController = segue.destination as? GameViewController {
+                
+                gameController.dataController = self.dataController
+                
+            }
+            
+        } else  if segue.identifier == "historySegue" {
+            
+            if let gameController = segue.destination as? HistoryTableViewController {
                 
                 gameController.dataController = self.dataController
                 
@@ -41,6 +59,12 @@ extension BeginViewController {
         performSegue(withIdentifier: "newGameSegue", sender: sender)
         
     }
+    
+    @IBAction func history(_ sender: Any) {
+        performSegue(withIdentifier: "historySegue", sender: sender)
+    }
+    
+    
 }
 
 

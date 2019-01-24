@@ -30,6 +30,9 @@
 		0B7757982132E9EF00FF41E3 /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7757972132E9EF00FF41E3 /* SShape.swift */; };
 		0B77579A2132EA5E00FF41E3 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7757992132EA5E00FF41E3 /* ZShape.swift */; };
 		0B77579E2133444C00FF41E3 /* TetrisPlusPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B77579D2133444C00FF41E3 /* TetrisPlusPlus.swift */; };
+		0B9BBA9521F9F21C004407F6 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BBA9421F9F21C004407F6 /* HistoryTableViewController.swift */; };
+		0B9BBA9721F9F374004407F6 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BBA9621F9F374004407F6 /* ScoreTableViewCell.swift */; };
+		0B9BBA9A21FA31F8004407F6 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9BBA9921FA31F8004407F6 /* ViewControllerExtensions.swift */; };
 		0BCCD75621F51646009E3895 /* TetrisPlusPlusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75521F51646009E3895 /* TetrisPlusPlusDelegate.swift */; };
 		0BCCD75921F55026009E3895 /* BeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75821F55026009E3895 /* BeginViewController.swift */; };
 		0BCCD75D21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0BCCD75B21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld */; };
@@ -64,6 +67,9 @@
 		0B7757972132E9EF00FF41E3 /* SShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		0B7757992132EA5E00FF41E3 /* ZShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		0B77579D2133444C00FF41E3 /* TetrisPlusPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisPlusPlus.swift; sourceTree = "<group>"; };
+		0B9BBA9421F9F21C004407F6 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		0B9BBA9621F9F374004407F6 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
+		0B9BBA9921FA31F8004407F6 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		0BCCD75521F51646009E3895 /* TetrisPlusPlusDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrisPlusPlusDelegate.swift; sourceTree = "<group>"; };
 		0BCCD75821F55026009E3895 /* BeginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginViewController.swift; sourceTree = "<group>"; };
 		0BCCD75C21F66740009E3895 /* tetrisCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = tetrisCore.xcdatamodel; sourceTree = "<group>"; };
@@ -102,6 +108,7 @@
 		0B77576121323BA000FF41E3 /* TetrisPlusPlus */ = {
 			isa = PBXGroup;
 			children = (
+				0B9BBA9821FA31E5004407F6 /* Extensions */,
 				0BCCD76421F69152009E3895 /* View */,
 				0BCCD75A21F6671E009E3895 /* Model */,
 				0BCCD75721F5165A009E3895 /* Delegates */,
@@ -132,11 +139,20 @@
 			path = Sounds;
 			sourceTree = "<group>";
 		};
+		0B9BBA9821FA31E5004407F6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0B9BBA9921FA31F8004407F6 /* ViewControllerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0BCCD75221F5148A009E3895 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				0B77576A21323BA000FF41E3 /* GameViewController.swift */,
 				0BCCD75821F55026009E3895 /* BeginViewController.swift */,
+				0B9BBA9421F9F21C004407F6 /* HistoryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				0BCCD76221F6912E009E3895 /* BeginView.swift */,
+				0B9BBA9621F9F374004407F6 /* ScoreTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,14 +289,17 @@
 				0BCCD75921F55026009E3895 /* BeginViewController.swift in Sources */,
 				0B7757982132E9EF00FF41E3 /* SShape.swift in Sources */,
 				0BCCD76121F668C3009E3895 /* DataController.swift in Sources */,
+				0B9BBA9521F9F21C004407F6 /* HistoryTableViewController.swift in Sources */,
 				0BCCD75F21F66800009E3895 /* ScoreExtension.swift in Sources */,
 				0B77579E2133444C00FF41E3 /* TetrisPlusPlus.swift in Sources */,
 				0BCCD75D21F66740009E3895 /* ios-tetrisPlusPlus.xcdatamodeld in Sources */,
 				0B7757902132E46300FF41E3 /* TShape.swift in Sources */,
+				0B9BBA9721F9F374004407F6 /* ScoreTableViewCell.swift in Sources */,
 				0B77578721323F7A00FF41E3 /* Array2D.swift in Sources */,
 				0B77576B21323BA000FF41E3 /* GameViewController.swift in Sources */,
 				0B77579A2132EA5E00FF41E3 /* ZShape.swift in Sources */,
 				0BCCD76321F6912E009E3895 /* BeginView.swift in Sources */,
+				0B9BBA9A21FA31F8004407F6 /* ViewControllerExtensions.swift in Sources */,
 				0B77576321323BA000FF41E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
