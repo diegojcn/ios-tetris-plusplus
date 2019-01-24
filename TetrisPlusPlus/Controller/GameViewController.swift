@@ -22,14 +22,18 @@ class GameViewController: UIViewController {
     @IBOutlet var levelLabel: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-        self.showNavigationController(animated: animated)
+        self.hideNavigationController(animated: animated)
+        
     }
+   
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return getDefaulStatusBarStyle()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //        // Configure the view.
         //        let skView = view as! SKView
@@ -43,7 +47,7 @@ class GameViewController: UIViewController {
         
         tetrisPlusPlus = TetrisPlusPlus()
         tetrisPlusPlus.delegate = self
-        tetrisPlusPlus.beginGame(playSound : false)
+        tetrisPlusPlus.beginGame()
         
         // Present the scene.
         skView.presentScene(scene)
@@ -160,12 +164,13 @@ extension GameViewController : TetrisPlusPlusDelegate {
             let alertController = UIAlertController(title: "Game Over", message:
                 "You Lose!", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Play Again", style: UIAlertActionStyle.default,handler: { (action) -> Void in
-                tetris.beginGame(playSound : false)
+                tetris.beginGame()
                 
             }))
             alertController.addAction(UIAlertAction(title: "Exit", style: UIAlertActionStyle.default,handler: { (action) -> Void in
                 
                 self.performSegue(withIdentifier: "back", sender: nil)
+                
                 
             }))
             

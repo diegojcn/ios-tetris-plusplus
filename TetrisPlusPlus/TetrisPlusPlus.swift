@@ -28,17 +28,15 @@ class TetrisPlusPlus {
     
     var score = 0
     var level = 1
-    var playSound : Bool?
     
     init() {
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: NumColumns, rows: NumRows)
-        playSound = false
     }
     
-    func beginGame(playSound : Bool) {
-        self.playSound = playSound
+    func beginGame() {
+        
         if (nextShape == nil) {
             nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
         }

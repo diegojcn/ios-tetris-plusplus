@@ -100,9 +100,10 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdf-bO-zxh" userLabel="fallBtn">
                                                 <rect key="frame" x="209.66666666666663" y="0.0" width="204.33333333333337" height="60"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
                                                 <state key="normal" title="Fall"/>
                                                 <connections>
-                                                    <action selector="fallShape:" destination="MGB-Jw-8f7" eventType="touchUpInside" id="zPc-bA-J7Z"/>
+                                                    <outletCollection property="gestureRecognizers" destination="rwS-p0-Sb9" appends="YES" id="OqB-uF-feo"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -158,6 +159,11 @@
                         <outlet property="delegate" destination="MGB-Jw-8f7" id="Evy-WB-xkf"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="rwS-p0-Sb9">
+                    <connections>
+                        <action selector="fallShape:" destination="MGB-Jw-8f7" id="2IX-Jr-4j5"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3949" y="-431"/>
         </scene>
@@ -333,7 +339,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8m8-lj-Hax" userLabel="titleView">
                                 <rect key="frame" x="20" y="131" width="374" height="282"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TetrisLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-Ha-9zW">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tetris" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-Ha-9zW">
                                         <rect key="frame" x="21" y="41" width="332" height="201"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -371,7 +377,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TetrisLogo" width="420" height="420"/>
+        <image name="Tetris" width="232" height="151"/>
         <image name="icon-60pt" width="120" height="120"/>
     </resources>
 </document>
